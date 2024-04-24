@@ -1,0 +1,17 @@
+[package]
+name = "rust-ev"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+mqtt = "0.1.4"
+
+rumqtt = "0.31.0"
+crossbeam-channel = "0.3.9"
+
+
+[profile.release]
+debug = true
