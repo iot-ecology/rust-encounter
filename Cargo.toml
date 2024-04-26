@@ -11,7 +11,6 @@ mqtt = "0.1.4"
 
 rumqtt = "0.31.0"
 crossbeam-channel = "0.3.9"
-
-
+js-sandbox="0.2.0-rc.0"
 [profile.release]
 debug = true
