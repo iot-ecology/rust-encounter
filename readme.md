@@ -1,6 +1,10 @@
 # Rust MQTT 客户端测试
 
 
+100个MQTT客户端,每秒处理，火焰图
+![](out.svg)
+
+
 
 基础程序
 
@@ -70,9 +74,9 @@ MQTT服务端上剔除客户端时间消耗11秒 ` 2024-04-26 12:35:01` -`2024-0
 
 
 
-sudo dtrace -c './rust-ev large-file' -o out.stacks -n 'profile-997 /execname == "rust-ev"/ { @[ustack(100)] = count(); }'
+sudo dtrace -c './mqtt-rust-ev large-file' -o out.stacks -n 'profile-997 /execname == "mqtt-rust-ev"/ { @[ustack(100)] = count(); }'
 
-`rust-ev` 是指编译好的二进制文件
+`mqtt-rust-ev` 是指编译好的二进制文件
 
 
 git clone git@github.com:brendangregg/FlameGraph.git 
