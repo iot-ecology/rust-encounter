@@ -7,9 +7,9 @@ use rumqtt::{MqttClient, MqttOptions, QoS, SecurityOptions};
 mod js_test;
 
 fn main() {
-    run_mqtt(1);
-
-
+    for i in 0..100 {
+        run_mqtt(i + 1);
+    }
     // 主线程等待
     loop {}
 }
@@ -50,7 +50,7 @@ function main(data) {
                     // 将字节数组转换为字符串
                     if let Ok(payload_str) = std::str::from_utf8(&publish.payload) {
                         let time = get_timestamp(src, payload_str).unwrap();
-                        handler_data(src2, payload_str);
+                        handler_data(src2, payload_str).expect("TODO: panic message");
                         time_sub(time, i);
                     } else {
                         println!("Received message is not valid UTF-8");
@@ -84,11 +84,11 @@ pub fn get_timestamp(src: &str, data: &str) -> Result<u64, AnyError> {
 pub fn handler_data(src: &str, data: &str) -> Result<(), AnyError> {
     let mut script = Script::from_string(src)?;
 
-    let res: Vec<HashMap<String, u64>> = script.call("main", (data, ))?;
+    let res: Vec<HashMap<String, f64>> = script.call("main", (data, ))?;
 
     for item in res.iter() {
-        for (key, value) in item.iter() {
-            // println!("Key: {}, Value: {}", key, value);
+        for (_key, _value) in item.iter() {
+            // println!("Key: {}, Value: {}", _key, _value);
         }
     }
 

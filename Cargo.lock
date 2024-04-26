@@ -957,6 +957,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "mqtt-rust-ev"
+version = "0.1.0"
+dependencies = [
+ "crossbeam-channel",
+ "js-sandbox",
+ "mqtt",
+ "rand 0.8.5",
+ "rumqtt",
+]
+
+[[package]]
 name = "mqtt311"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1469,17 +1480,6 @@ dependencies = [
  "tokio-rustls",
  "uuid 0.7.4",
  "webpki",
-]
-
-[[package]]
-name = "rust-ev"
-version = "0.1.0"
-dependencies = [
- "crossbeam-channel",
- "js-sandbox",
- "mqtt",
- "rand 0.8.5",
- "rumqtt",
 ]
 
 [[package]]
